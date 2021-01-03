@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.womensafety">
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WomenSafety">
-        <service android:enabled="true" android:name=".classes.shakeService" />
+        <activity android:name=".sendDistressCall"></activity>
+
         <activity android:name=".DistressSignal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +21,15 @@
         </activity>
 
         <activity android:name=".Registration" />
-        <activity android:name=".Login">
-
-        </activity>
+        <activity android:name=".Login"></activity>
         <activity android:name=".MainActivity" />
+        <service
+            android:name=".classes.shakeService"
+            android:enabled="true" />
     </application>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
 </manifest>
